@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: $textColor;
+  background: $contentBackground;
+  font: $fontFace;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h4 {
+  color: $defaultColor;
+  text-transform: uppercase;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  display: block;
+  height: 48px;
+  line-height: 48px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  border: 1px solid $borderColor;
+  border-radius: 0;
+  background: transparent;
+  font-size: 16px;
+  outline: 0;
+}
+
+textarea {
+  resize: vertical;
+  height: 120px;
+  padding-top: 5px;
+}
+
+button {
+  min-width: 200px;
+  padding: 10px 20px;
+  background-color: $defaultColor;
+  border: 1px solid $defaultColor;
+  font-size: $defaultFontSize;
+  color: #fff;
+  outline: none;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $secondaryColor;
+  }
+}
+
+.main-wrapper {
+  width: $containerWidth;
+  max-width: $containerWidth;
+  margin: 0 auto;
+}
+
+header {
+  .logo {
+    display: inline-block;
+    width: 38%;
+    vertical-align: middle;
+    text-align: center;
+  }
+
+  nav {
+    display: inline-block;
+    width: 60%;
+    margin-bottom: 30px;
+    border-top: solid 1px $borderColor;
+    border-bottom: solid 1px $borderColor;
+    vertical-align: bottom;
+    text-align: center;
+    text-transform: uppercase;
+
+    a {
+      line-height: 56px;
+      width: 30%;
+      display: inline-block;
+      text-decoration: none;
+      color: $defaultColor;
+    }
+  }
+}
+
+.toolbar {
+  text-align: right;
+  padding: 20px 10px;
+
+  input {
+    display: inline-block;
+    width: 200px;
+    padding: 10px 20px;
+    background-color: $contentBackground;
+    font-size: $defaultFontSize;
+    border: 1px solid $defaultColor;
+    outline: none;
+
+    &::placeholder {
+      color: $defaultColor;
+    }
+  }
+}
+
+.post-list {
+  margin-bottom: 50px;
+
+  article {
+    display: inline-block;
+    width: calc(100% / 2 - 20px);
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: $articleBackground;
+    vertical-align: top;
+
+    &:nth-child(even) {
+      margin-left: 25px;
+    }
+
+    & > div {
+      padding: 0 10px;
+    }
+
+    .post-description {
+      padding: 5px;
+      margin-bottom: 5px;
+      font-size: 12px;
+      border-bottom: 1px solid $borderColor;
+      color: $secondaryColor;
+    }
+
+    h3 {
+      color: $articleHeaderColor;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.about {
+  margin-bottom: 50px;
+  padding: 15px;
+
+  h1 {
+    text-align: right;
+  }
+}
+
+.contact-form {
+  text-align: right;
+  color: $articleHeaderColor;
+
+  h4{
+    margin-bottom: 20px;
+  }
+}
+
+footer {
+  span {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+}
