@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -8,37 +8,38 @@ body {
   padding: 0;
   font-family: 'Open Sans', sans-serif;
 }
-h1{
+
+h1 {
   font-size: 55px;
 }
 
-h3{
+h3 {
   font-size: 23px;
   color: #000;
 }
 
-p{
+p {
   color: #000;
 }
 
-img{
+img {
   max-width: 100%;
   vertical-align: middle;
 }
 
-.clearfix::after{
+.clearfix::after {
   display: block;
   content: '';
   clear: both;
 }
 
-.container{
+.container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
 
-.hero-container{
+.hero-container {
   background: url('../img/apples.jpg') no-repeat;
   background-size: cover;
   background-position: top center;
@@ -48,11 +49,11 @@ header {
   padding: 40px 0;
 }
 
-header .logo{
+header .logo {
   float: left;
 }
 
-header .logo p{
+header .logo p {
   color: #FFF;
   text-transform: uppercase;
   font-size: 20px;
@@ -65,7 +66,7 @@ header nav {
   line-height: 50px;
 }
 
-header nav a{
+header nav a {
   color: #FFF;
   display: inline-block;
   padding: 10px 30px;
@@ -73,7 +74,7 @@ header nav a{
   font-size: 18px;
 }
 
-.hero-container .hero{
+.hero-container .hero {
   clear: both;
   text-align: center;
   padding: 120px 0 60px;
@@ -84,18 +85,17 @@ header nav a{
   color: #FFF;
 }
 
-.hero-container .hero h1{
+.hero-container .hero h1 {
   text-transform: uppercase;
   letter-spacing: 19px;
   margin-bottom: 20px;
 }
 
-
-.hero-container .hero h1 span{
+.hero-container .hero h1 span {
   font-size: 80px;
 }
 
-.hero-container .hero .cta-button{
+.hero-container .hero .cta-button {
   display: inline-block;
   color: #fff;
   border: 2px solid #fff;
@@ -105,22 +105,22 @@ header nav a{
   margin-top: 130px;
 }
 
-.info-section{
+.info-section {
   padding: 100px 0;
 }
 
-.info-section .info-column{
+.info-section .info-column {
   display: inline-block;
   width: 49.5%;
   vertical-align: middle;
 }
 
-.articles-section{
+.articles-section {
   background-color: #F3F3F3;
   padding: 100px 0;
 }
 
-.articles-section h3{
+.articles-section h3 {
   text-align: center;
   margin-bottom: 100px;
 }
@@ -130,13 +130,13 @@ header nav a{
   margin-bottom: 15px;
 }
 
-.articles-section .article-item .article-img{
+.articles-section .article-item .article-img {
   position: relative;
   width: 63%;
   display: inline-block;
 }
 
-.articles-section .article-item .article-img .likes{
+.articles-section .article-item .article-img .likes {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -144,16 +144,17 @@ header nav a{
   color: #fff;
   background: #A4A4A4;
   padding: 5px 15px;
+  font-size: 14px;
 }
 
-.articles-section .article-item .article-img .img-label{
+.articles-section .article-item .article-img .img-label {
   position: absolute;
   bottom: 0px;
   color: #fff;
   padding: 15px;
 }
 
-.articles-section .article-item .article-content{
+.articles-section .article-item .article-content {
   position: relative;
   width: 34%;
   padding: 0 15px;
@@ -162,45 +163,46 @@ header nav a{
   text-align: center;
 }
 
-.articles-section .subscribe-container{
+.articles-section .subscribe-container {
   clear: both;
   background-color: #fff;
   padding: 30px 15px 50px;
   margin-top: 40px;
 }
 
-.articles-section .subscribe-container h3{
+.articles-section .subscribe-container h3 {
   width: 29%;
   display: inline-block;
   margin-bottom: 0;
 }
 
-.articles-section .subscribe-container form{
+.articles-section .subscribe-container form {
   width: 70%;
   display: inline-block;
 }
 
 footer .footer-info {
-  border-bottom: 1px solid #A4A4A4;;
+  border-bottom: 1px solid #A4A4A4;
+  ;
   padding: 100px 0;
 }
 
-footer .footer-info p{
+footer .footer-info p {
   color: #A4A4A4;
   font-size: 14px;
 }
 
-footer .footer-info .date{
+footer .footer-info .date {
   font-size: 13px;
   color: #E8E8E8;
 }
 
-footer .footer-info .footer-column{
+footer .footer-info .footer-column {
   width: 25%;
   float: left;
 }
 
-footer .footer-copyright{
+footer .footer-copyright {
   clear: both;
 }
 
@@ -215,7 +217,7 @@ footer .footer-copyright nav {
   padding: 10px 0;
 }
 
-footer .footer-copyright nav a{
+footer .footer-copyright nav a {
   text-decoration: none;
   color: #343638;
   font-size: 13px;
@@ -223,7 +225,7 @@ footer .footer-copyright nav a{
   padding-left: 10px;
 }
 
-form input{
+form input {
   width: 80%;
   font-size: 14px;
   padding: 15px;
@@ -232,7 +234,7 @@ form input{
   color: #343638;
 }
 
-form button{
+form button {
   width: 20%;
   font-size: 14px;
   padding: 15px;
@@ -241,13 +243,13 @@ form button{
   border: 1px solid #343638;
 }
 
-form.small input{
+form.small input {
   width: 75%;
   padding: 10px 5px;
   font-size: 13px;
 }
 
-form.small button{
+form.small button {
   padding: 10px 5px;
   font-size: 13px;
   width: 25%;
