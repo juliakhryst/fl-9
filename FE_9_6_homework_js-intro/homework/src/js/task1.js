@@ -8,7 +8,7 @@ let successOutput = `
 Price without discount: ${price} 
 Discount: ${discount}
 Price with discount: ${Math.round(newPrice) !== newPrice ? newPrice.toFixed(2) : newPrice}
-Saved: ${Math.round(savings) !==savings ? savings.toFixed(2) : savings}
+Saved: ${Math.round(savings) !== savings ? savings.toFixed(2) : savings}
 `;
 let failedOutput = 'Invalid data';
-console.log(price < 0 || discount < 0 ? failedOutput : successOutput);
+console.log(price < 0 || discount < 0 || discount > 100 ? failedOutput : successOutput);
