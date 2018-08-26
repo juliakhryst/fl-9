@@ -1,3 +1,3 @@
 function isSmaller(a, b) {
-    return !isBigger(a, b);
+    return a === b ? false : !isBigger(a, b)
 }
