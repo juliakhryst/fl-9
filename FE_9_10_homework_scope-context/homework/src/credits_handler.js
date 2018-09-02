@@ -39,7 +39,7 @@ function userCard(index) {
     }
 
     function takeCredits(creditsAmount) {
-        if (creditsAmount > transactionLimit) {
+        if (creditsAmount > transactionLimit || creditsAmount > balance) {
             console.log('You are trying to take more than allowed!\n' + 
             `Your transaction limit is ${transactionLimit} and remaining balance is ${balance}. `);
             return;
