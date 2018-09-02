@@ -1,23 +1,3 @@
-class UserAccount{
-    constructor(name){
-        this.name = name;
-        this.cards = [];
-        this.maxCards = 3;
-    }
-
-    addCard() {
-        if (this.cards.length < this.maxCards) {
-            this.cards.push(userCard(this.cards.length + 1));
-        } else {
-            console.log('You can\'t have more than 3 cards!');
-        }
-    }
-
-    getCardByKey(key) {
-        return this.cards[key-1];
-    }
-}
-
 function userCard(index) {
     let balance = 100;
     let transactionLimit = 100;
@@ -54,7 +34,7 @@ function userCard(index) {
     }
 
     function transferCredits(amount, recepient) {
-        const tax = 0.05;
+        const tax = 0.005;
         const total = tax * amount + amount;
 
         if(total <= balance && total <= transactionLimit) {
@@ -96,4 +76,24 @@ function userCard(index) {
         setTransactionLimit,
         transferCredits
     };
+}
+
+class UserAccount{
+    constructor(name){
+        this.name = name;
+        this.cards = [];
+        this.maxCards = 3;
+    }
+
+    addCard() {
+        if (this.cards.length < this.maxCards) {
+            this.cards.push(userCard(this.cards.length + 1));
+        } else {
+            console.log('You can\'t have more than 3 cards!');
+        }
+    }
+
+    getCardByKey(key) {
+        return this.cards[key-1];
+    }
 }
