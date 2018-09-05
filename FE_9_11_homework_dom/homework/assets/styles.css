@@ -1,2 +1,67 @@
-/* Your styles goes here */
+[disabled] {
+    cursor: not-allowed;
+}
 
+body {
+    font-family: sans-serif;
+    max-width: 900px;
+    margin: auto;
+}
+input{
+    width: 92%;
+    clear: both;
+    margin-left: 10px;
+    border: 1px solid black;
+    height: 24px;
+}
+
+form{
+    margin-bottom: 24px;
+}
+
+button{
+    vertical-align: middle;
+    margin: 0px 10px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+header{
+        font-weight: normal;
+        text-align: center;
+}
+
+hr {
+    border-bottom: 1.7px solid black;
+}
+
+.action-input{
+    height: 22px;
+}
+
+.material-icons {
+    font-size: 34px;
+}
+
+.item{
+cursor: move;
+}
+
+.cat-stamp {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-grow: 1;
+    padding: 80px 0 10px;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    background-color: beige;
+}
+
+.item button:last-of-type{
+    margin-left: auto;
+}
