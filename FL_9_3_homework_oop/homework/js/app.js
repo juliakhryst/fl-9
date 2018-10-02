@@ -108,7 +108,6 @@ function ShoppingCart(name, owner, maxCount) {
         return totalPrice.toFixed(2);
     }
 
-
     this.getAvaragePrice = () => {
         if ( _productsList.length) {
             return (this.getTotalPrice() / _productsList.length).toFixed(2);
@@ -125,7 +124,7 @@ function ShoppingCart(name, owner, maxCount) {
         const formated = [];
         _productsList.forEach(product => {
             formated.push(`${product.name} - is on ${this.name} from ${product.date}. 
-            Detailed product description: ${product.description}`);
+            Detailed product description: ${JSON.stringify(product.description)}`);
         });
         console.table(formated);
     }
