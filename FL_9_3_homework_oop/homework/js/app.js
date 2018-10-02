@@ -1,11 +1,9 @@
-/* Write your code here */
 function Product(name, description, price) {
     this.name = name;
     this.description = description;
     let _price = isPriceValid(price) ? price : 0;
     let _shoppingCartName = '';
     let _logs = [];
-
 
     this.getPrice = () => {
         return _price;
@@ -26,12 +24,14 @@ function Product(name, description, price) {
     this.add = (shoppingCartName) => {
         _shoppingCartName = shoppingCartName;
         _logs.push(`${this.name} is added to ${_shoppingCartName} at ${new Date()}`);
+
         return this;
     }
 
     this.removeProduct = () => {
         _logs.push(`${this.name} is removed from ${_shoppingCartName} at ${new Date()}`);
         _shoppingCartName = '';
+
         return this;
     }
 
@@ -105,7 +105,7 @@ function ShoppingCart(name, owner, maxCount) {
             totalPrice += element.getPrice();
         });
 
-        return totalPrice;
+        return totalPrice.toFixed(2);
     }
 
 
