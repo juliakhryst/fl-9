@@ -56,13 +56,27 @@ Bot.prototype.getCoordinates = function () {
 }
 
 Bot.prototype.setCoordinates = function (newCoordinatesObj) {
-
     this.x = newCoordinatesObj.x;
     this.y = newCoordinatesObj.y;
 }
 
 Bot.prototype.move = function (direction) {
-    moveHandler.call(this, direction);
+    switch (direction) {
+        case 'up':
+            this.y += this.getSpeed();
+            break;
+        case 'down':
+            this.y -= this.getSpeed();
+            break;
+        case 'left':
+            this.x -= this.getSpeed();
+            break;
+        case 'right':
+            this.x += this.getSpeed();
+            break;
+        default: console.log('Wrong direction has been set');
+            break;
+    }
 }
 
 Bot.prototype.showPosition = function () {
@@ -81,8 +95,7 @@ Racebot.prototype.constructor = Racebot;
 Racebot.prototype.move = function (direction) {
     const newSpeed = direction === this.previousMove ? this.getSpeed() + 1 : this.getDefaultSpeed();
     this.setSpeed(newSpeed);
-
-    moveHandler.call(this, direction);
+    Bot.prototype.move.call(this, direction);
     this.previousMove = direction;
 }
 
@@ -98,28 +111,9 @@ Speedbot.prototype.prepareEngine = function () {
 }
 
 Speedbot.prototype.move = function (direction) {
-    moveHandler.call(this, direction);
+    Bot.prototype.move.call(this, direction);
 
     if (this.getSpeed() > this.getDefaultSpeed()) {
         this.setSpeed(this.getSpeed() - 1);
-    }
-}
-
-function moveHandler(direction) {
-    switch (direction) {
-        case 'up':
-            this.y += this.getSpeed();
-            break;
-        case 'down':
-            this.y -= this.getSpeed();
-            break;
-        case 'left':
-            this.x -= this.getSpeed();
-            break;
-        case 'right':
-            this.x += this.getSpeed();
-            break;
-        default: console.log('Wrong direction has been set');
-            break;
     }
 }
