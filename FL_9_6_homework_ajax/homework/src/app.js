@@ -7,36 +7,45 @@ const http = {
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
-                       console.log('xhr done successfully');
-                       var response = JSON.parse(xhr.responseText);
-                       resolve(response);
+                        let response = JSON.parse(xhr.responseText);
+                        resolve(response);
                     } else {
-                       reject('Error ' + xhr.status + ': ' + xhr.statusText);
-                       console.log('xhr failed');
+                        reject('Error ' + xhr.status + ': ' + xhr.statusText);
                     }
-                } else {
-                    console.log('xhr processing going on');
                 }
-            }
-        })
+            };
+        });
     }
-}
+};
 
 
 function track() {
-    console.log('track');
     let lat = document.getElementById('lat').value;
     let lon = document.getElementById('lon').value;
     let url = `https://api.onwater.io/api/v1/results/${lat},${lon}`;
 
     http.get(url)
         .then(res => {
-            console.log(res);
-            let text = document.getElementById('text');
+            let text = document.getElementById('type');
             text.innerHTML = res.water ? 'Water' : 'Land';
+            text.style.color = res.water ? '#3877c4' : '#bdc763';
+            if (res.water) {
+                document.getElementById('water').style.display = 'block';
+                document.getElementById('land').style.display = 'none';
+            } else {
+                document.getElementById('water').style.display = 'none';
+                document.getElementById('land').style.display = 'block';
+            }
+
         })
         .catch(err => {
-            console.log(err);
+            let text = document.getElementById('type');
+            text.innerHTML = err;
+            text.style.color = '#82091f';
+            document.getElementById('water').style.display = 'none';
+            document.getElementById('land').style.display = 'none';
         });
-
 }
+
+let trackButton = document.getElementById('track-button');
+trackButton.addEventListener('click', track);

@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
   <title>FL 9 3 homework AJAX</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
 </head>
-<body>
-  <!-- Your code goes here -->
 
-  <div id="form">
+<body>
+  <div class="form">
     <label for="lat">Latitude</label>
     <input type="text" id="lat">
 
     <label for="lon">Longtitude</label>
     <input type="text" id="lon">
-    <button onclick="track()">Track</button>
+    <button id="track-button" type="button">Track</button>
   </div>
 
-  <h2 id=text></h2>
-  <script src="app.js"></script>
+  <div class="animation-container">
+    <div id="type" class="surface-type"></div>
+    <div class="water-container" id="water">
+      <div class="sun"></div>
+      <div class="cloud"></div>
+      <div class="wave wave-1"></div>
+      <div class="wave wave-2"></div>
+    </div>
+
+    <div class="land-container" id="land">
+      <div class="sun"></div>
+      <div class="cloud"></div>
+      <div class="mountain mountain-1">
+        <div class="mountain-ice"></div>
+      </div>
+      <div class="mountain mountain-2">
+        <div class="mountain-ice"></div>
+      </div>
+      <div class="ground"></div>
+    </div>
+  </div>
 </body>
+
 </html>

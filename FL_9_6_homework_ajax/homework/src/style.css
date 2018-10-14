@@ -1,1 +1,278 @@
-/* Your code goes here */
+.form {
+    margin: 20px auto;
+    width: 70%;
+    background-color: #aae7ff;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .form label {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px;
+  }
+
+  .form input {
+    margin-bottom: 10px;
+    border-radius: 15px;
+    font-size: 16px;
+    border: 1px solid #fffae3;
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 5px;
+  }
+
+  .form button {
+    display: block;
+    font-size: 16px;
+    padding: 5px 30px;
+    background-color: #bdc763;
+    border-radius: 15px;
+    color: #fff;
+    margin: 10px auto;
+  }
+
+  #water,
+  #land {
+    display: none;
+  }
+
+  .surface-type {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .water-container,
+  .land-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 400px;
+    height: 400px;
+    background-color: #aae7ff;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .water-container .wave {
+    position: absolute;
+    width: 800px;
+    transform-origin: center center;
+  }
+
+  .water-container .wave:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -7px;
+    right: 0;
+    background-repeat: repeat;
+    height: 7px;
+    background-size: 20px 20px;
+    background-image: radial-gradient(circle at 7px -3px, transparent 8px, #3877c4 8px);
+  }
+
+  .water-container .wave:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -10px;
+    right: 0;
+    background-repeat: repeat;
+    height: 10px;
+    background-size: 40px 20px;
+    background-image: radial-gradient(circle at 7px 10px, #3877c4 8px, transparent 9px);
+  }
+
+  .water-container .wave-1 {
+    height: 400px;
+    background-color: #3877c4;
+    opacity: .6;
+    animation: wave-1 15s ease-in-out infinite;
+    bottom: -250px;
+    z-index: 3;
+  }
+
+  .water-container .wave-2 {
+    height: 400px;
+    background-color: #3877c4;
+    opacity: .4;
+    left: -30%;
+    animation: wave-2 20s ease-out infinite;
+    bottom: -240px;
+    z-index: 1;
+  }
+
+  .sun {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-size: 100%;
+    background-image: radial-gradient(#fffae3 0%, #fffae3 20%, rgba(252, 240, 150, 0) 70%, rgba(252, 240, 150, 0) 100%);
+  }
+
+  .cloud,
+  .cloud:before,
+  .cloud:after {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    background: #fff;
+    border-radius: 100px / 50px;
+  }
+
+  .cloud {
+    top: 70px;
+    animation: cloud 50s infinite linear;
+    opacity: .6;
+  }
+
+  .cloud:before {
+    content: '';
+    left: 50px;
+  }
+
+  .cloud:after {
+    content: '';
+    left: 25px;
+    top: -10px;
+  }
+
+  .land-container .mountain {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    border: 80px solid transparent;
+    border-bottom: 140px solid #69686e;
+  }
+
+  .land-container .mountain-ice {
+    position: absolute;
+    top: 0;
+    left: -25px;
+    border: 42px solid transparent;
+    border-left: 24px solid #fff;
+    -webkit-transform: skew(-30deg);
+    transform: skew(-30deg);
+  }
+
+  .land-container .mountain-ice::before {
+    position: absolute;
+    content: "";
+    top: -44px;
+    left: -43px;
+    border: 42px solid transparent;
+    border-right: 24px solid #fff;
+    -webkit-transform: skew(49deg);
+    transform: skew(49deg);
+  }
+
+  .land-container .mountain-ice::after {
+    position: absolute;
+    content: "";
+    border: 10px solid transparent;
+    border-left: 20px solid #fff;
+    -webkit-transform: rotate(-27deg);
+    transform: rotate(-27deg);
+    left: 3px;
+    top: -10px;
+  }
+
+  .land-container .mountain-2 {
+    left: 40%;
+    border: 120px solid transparent;
+    border-bottom: 220px solid #69686e;
+  }
+
+  .ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    border-radius: 20px 20px 0 0;
+    background-color: #bdc763;
+  }
+
+  @-webkit-keyframes wave-1 {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(-25%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes wave-1 {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(-25%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @-webkit-keyframes wave-2 {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(15%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes wave-2 {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(15%);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @-webkit-keyframes cloud {
+    0% {
+      left: -100px;
+    }
+
+    100% {
+      left: 400px;
+    }
+  }
+
+  @keyframes cloud {
+    0% {
+      left: -100px;
+    }
+
+    100% {
+      left: 400px;
+    }
+  }
