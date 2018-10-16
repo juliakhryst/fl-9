@@ -3,6 +3,22 @@
     margin: 0 auto;
 }
 
+input {
+    width: 100%;
+}
+
+.more-link {
+    display: block;
+    text-align: center;
+    padding: 30px 0;
+    color: #3079a3;
+    font-size: 18px;
+}
+
+.more-link:hover {
+    cursor: pointer;
+}
+
 .row {
     display: flex;
     align-items: stretch;
@@ -52,6 +68,7 @@
     height: 22px;
     background-repeat: no-repeat;
     background-image: url('../img/icons.png');
+    display: inline-block;
 }
 
 .post-item:hover .post-overlay {
@@ -63,8 +80,21 @@
 }
 
 .icon.icon-comment {
-    background-position: -22px 0px
+    background-position: -22px 0px;
 }
+
+.icon.icon-prev {
+    background-position: -40px -25px;
+    width: 30px;
+    height: 30px;
+}
+
+.icon.icon-next {
+    background-position: 5px -25px;
+    width: 30px;
+    height: 30px;
+}
+
 
 .modal {
     display: none;
@@ -84,9 +114,76 @@
     background-color: #fefefe;
     margin: auto;
     padding: 0;
-    width: 940px;
+    width: 80%;
 }
 
 .modal .modal-content {
     display: flex;
+    min-height: 450px;
+}
+
+.modal .modal-content .prev,
+.modal .modal-content .next {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+}
+
+.modal .modal-content .prev {
+    left: -40px;
+}
+
+.modal .modal-content .next {
+    right: -40px;
+}
+
+.modal .modal-content .prev:hover,
+.modal .modal-content .next:hover {
+    cursor: pointer;
+}
+
+
+.modal .modal-content .image-col {
+    flex: 2;
+    text-align: center;
+}
+
+.modal .modal-content .data-col {
+    flex: 1;
+    padding: 30px 30px 30px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal .modal-content .post-image {
+    width: auto;
+    max-height: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.modal .modal-content header {
+    display: flex;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 20px;
+}
+
+.modal .modal-content .user-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal .modal-content footer {
+    margin-top: auto;
+}
+
+.modal .modal-content .logo {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: solid 1px #3079a3;
+    margin-right: 20px;
 }

@@ -14,37 +14,47 @@
 
   </div>
 
+  <a class="more-link">View More</a>
+
   <div id="post-modal" class="modal">
-    <i class="icon icon-close">&times;</i>
-    <a class="prev">
-      <i class="icon icon-prev"></i>
-    </a>
-    <a class="next">
-      <i class="icon icon-next"></i>
-    </a>
 
     <div class="modal-content">
+      <a class="prev">
+        <i class="icon icon-prev"></i>
+      </a>
+
       <div class="image-col">
-        <div class="post-image"></div>
+        <img class="post-image">
       </div>
       <div class="data-col">
         <header>
-          <img src="picture/user.jpg" alt="Logo" class="Logo">
-          <a href="" class="blog-name"></a> •
-          <a href="#" class="follow-link">Follow</a>
-          <p class="location"></p>
+          <img src="picture/user.jpg" alt="Logo" class="logo">
+          <div class="user-data">
+            <div class="user-name">
+              <a href="#" class="blog-name"></a> • <a href="#" class="follow-link">Follow</a>
+            </div>
+            <div class="location"></div>
+          </div>
+
         </header>
 
         <div class="caption"></div>
 
         <footer>
-          <div class="likes-row"></div>
+          <div class="likes-row">
+            <span class="likes"></span> likes
+          </div>
           <div class="comment-row">
             <input type="text" placeholder="Add comment">
           </div>
         </footer>
       </div>
+
+      <a class="next">
+        <i class="icon icon-next"></i>
+      </a>
     </div>
+
   </div>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="./js/app.js"></script>
