@@ -9,9 +9,9 @@ const auth = require('./middlewares/delete-authorization')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(auth.deleteAuth());
+//app.use(auth.deleteAuth());
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
     res.send('Welcome to our Car API!');
 });
 
