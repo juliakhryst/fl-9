@@ -1,20 +1,24 @@
 const fs = require('fs');
-const dbPath = '/db/data.json';
+const path = require('path');
+const dbPath = path.join(__dirname, '../../db/data.json');
 
 const getData = () => {
     const data = fs.readFileSync(dbPath);
     return JSON.parse(data);
 }
 
-const create = (req, res) => {
-    let newCar = {
-        id: req.body.id,
-        brand: req.body.brand,
-        model: req.body.model,
-        engineVolume: req.body.engineVolume,
-        year: req.body.year
+const createCarModel = (car) => {
+    return {
+        id: car.id,
+        brand: car.brand,
+        model: car.model,
+        engineVolume: car.engineVolume,
+        year: car.year
     };
+}
 
+const create = (req, res) => {
+    let newCar = createCarModel(req.body);
     const carList = getData();
 
     if (carList.find((car) => car.id === req.body.id)) {
@@ -28,14 +32,14 @@ const create = (req, res) => {
 
 const getAll = (req, res) => {
     const carList = getData();
-    res.status(200).send(JSON.stringify(carsList));
+    res.status(200).send(JSON.stringify(carList));
 }
 
 const getById = (req, res) => {
     const searchId = parseInt(req.params.id);
     const carList = getData();
-
     const findCar = carList.find(car => car.id === searchId);
+
     if (findCar) {
         res.status(200).send(JSON.stringify(findCar));
     } else {
@@ -44,35 +48,27 @@ const getById = (req, res) => {
 }
 
 const update = (req, res) => {
-    const newCarData = {
-        id: req.body.id,
-        brand: req.body.brand,
-        model: req.body.model,
-        engineVolume: req.body.engineVolume,
-        year: req.body.year
-    };
-
     let carList = getData();
+    const newCarData = createCarModel(req.body);
+    const carToUpdate = carList.find(car => car.id === parseInt(req.params.id));
 
-    if (!carList.find((car) => car.id === parseInt(newCarData.id))) {
-        res.status(404);
+    if (carToUpdate) {
+        carList = carList.map((car) => {
+            return car.id === parseInt(req.params.id) ? Object.assign({ id: car.id }, newCarData) : car;
+        });
+
+        fs.writeFile(dbPath, JSON.stringify(carList));
+        res.status(200).send(JSON.stringify(newCarData));
+    } else {
+        res.status(404).send();
     }
-    carList = carList.map((car) => {
-        if (car.id === parseInt(newCarData.id)) {
-            return Object.assign({ id: car.id }, newCarData);
-        } else {
-            return car;
-        }
-    });
-
-    fs.writeFile(dbPath, JSON.stringify(carList));
-    res.status(200).send(JSON.stringify(newCarData));
 };
 
+
 const remove = (req, res) => {
-    const carId = parseInt(req.params.id);
     const carList = getData();
-    const carToRemove = carList.find(car => car.id === carId);
+    const carToRemove = carList.find(car => car.id === parseInt(req.params.id));
+
     if (carToRemove) {
         carList.splice(carList.indexOf(carToRemove), 1);
         fs.writeFile(dbPath, JSON.stringify(carList));

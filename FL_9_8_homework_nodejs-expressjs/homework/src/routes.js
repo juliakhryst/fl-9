@@ -1,6 +1,5 @@
-const express = require('express');
+const router = require('express').Router();
 const carHandler = require('./handlers/car');
-const router = express.Router();
 
 router.post('/car', carHandler.create);
 router.get('/car', carHandler.getAll);
