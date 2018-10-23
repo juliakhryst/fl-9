@@ -4,7 +4,7 @@
   "description": "",
   "main": "./src/app.js",
   "scripts": {
-    "start": "gulp default",
+    "start": "gulp start",
     "build": "gulp build",
     "build:prod": "gulp build-prod"
   },
