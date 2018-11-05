@@ -10,8 +10,18 @@ $shadow:
     0 3px 1px -2px rgba(0, 0, 0, 0.12),
     0 1px 5px 0 rgba(0, 0, 0, 0.2);
 
-.root {
-    font-family: 'Open Sans', sans-serif;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-// You can import your styles here
+.root {
+    font-family: 'Open Sans', sans-serif;
+    min-width: 1050px;
+    max-width: 80%;
+    margin: auto;
+    padding-top: 70px;
+    padding-bottom: 150px;
+}
+
+@import './components/styles'
