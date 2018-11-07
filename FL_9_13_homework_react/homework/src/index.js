@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
+
+import { Player } from './player';
 
 // Entry point for styles
 import './scss/index.scss';
@@ -8,10 +10,10 @@ import './scss/index.scss';
 const rootNode = document.querySelector('#root');
 
 // Entry point for the application
-class App extends Component {
-  render() {
-    return 'It works!';
-  }
+function App() {
+  return (
+    <Player />
+  );
 }
 
 render(
