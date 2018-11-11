@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FL9_14_Angular_v1</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body ng-controller="AppCtrl as main">
+  <div class="container">
+
+    <h2>POSTS WALL</h2>
+    <input type="text" placeholder="Search by title...">
+
+    <section class="post-item" ng-repeat="post in main.posts">
+      <div class="post-avatar">
+        <img ng-src="{{post.photo}}" alt="user-avatar">
+      </div>
+      <p class="user-name">{{post.userName}}</p>
+      <h3 class="post-title">{{post.title}}</h3>
+      <p class="post-body">{{post.message}}</p>
+      <div class="likes">
+        <button>like</button>
+        <span>{{post.likes}}</span>
+      </div>
+    </section>
+
+    <button class="add-post">Add new post</button>
+  </div>
+
+  <script src="app/app.module.js"></script>
+  <script src="app/app.constants.js"></script>
+  <script src="app/app.controller.js"></script>
+
+</body>
+</html>
