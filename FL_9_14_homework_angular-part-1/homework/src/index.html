@@ -14,9 +14,9 @@
   <div class="container">
 
     <h2>POSTS WALL</h2>
-    <input type="text" placeholder="Search by title...">
+    <input type="text" ng-model="main.searchText.title" placeholder="Search by title...">
 
-    <section class="post-item" ng-repeat="post in main.posts">
+    <section class="post-item" ng-repeat="post in main.posts | filter:main.searchText:strict track by $index">
       <div class="post-avatar">
         <img ng-src="{{post.photo}}" alt="user-avatar">
       </div>
@@ -24,13 +24,49 @@
       <h3 class="post-title">{{post.title}}</h3>
       <p class="post-body">{{post.message}}</p>
       <div class="likes">
-        <button>like</button>
+        <button ng-click="main.likeToggle(post)" ng-class="{'liked': post.isLiked}">like
+        </button>
         <span>{{post.likes}}</span>
       </div>
     </section>
 
-    <button class="add-post">Add new post</button>
+    <button ng-if="!main.newPost" class="add-post" ng-click="main.addPost()">
+    Add new post
+    </button>
+
+<div
+    ng-if="main.newPost"
+    class="new-post">
+
+<form name="newPost" class="new-post-form">
+<div class="post-container">
+  <div class="posts-image">
+    <img ng-src="{{main.newPost.photo}}" alt="photo">
   </div>
+  <p>{{main.newPost.name}}</p>
+</div>
+<div class="new-post-text">
+  <input type="text" ng-model="main.newPost.title" required>
+  <textarea type="text" ng-model="main.newPost.message"></textarea>
+</div>
+</form>
+
+<div class="post-btn">
+  <button
+          type="submit"
+          class="add-post"
+          ng-click="main.savePost()">
+    Save
+  </button>
+  <button
+          type="reset"
+          class="add-post cancel"
+          ng-click="main.cancelNewPost()">
+    Cancel
+  </button>
+</div>
+
+ </div>
 
   <script src="app/app.module.js"></script>
   <script src="app/app.constants.js"></script>

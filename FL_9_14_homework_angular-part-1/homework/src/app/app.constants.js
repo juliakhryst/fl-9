@@ -10,7 +10,8 @@ angular
             Along the way we will be passing through Philladelphia, Washington, Charleston, 
             St Augustine, Orlando, Sarasota, Roanoak, Savannah and a couple more.
             I would be very gratefull for any recommendations on what to see and do in those places.`,
-            likes: 4
+            likes: 4,
+            isliked: false
         },
 
         {
@@ -25,7 +26,7 @@ angular
             there are many opportunities to work with them. 
             Tasks in orphanages include taking care of children, administration, and daily chores.`,
             likes: 7,
-            isliked: true
+            isliked: false
         },
 
         {
@@ -37,7 +38,14 @@ angular
             bringing together 5,000 industry leaders, business decision makers, 
             tech innovators and investors.Based on unrivalled content and practical ‘how-to’ case studies, 
             over 200 visionary speakers will address the challenges and opportunities of our blockchain future`,
-            likes: 3
+            likes: 3,
+            isliked: false
         }
     ])
+
+    .constant('currentUserData', {
+        id: '22',
+        name: 'Anna Peterson',
+        photo: 'assets/img/avatar6.jpg'
+    })
 

@@ -30,8 +30,6 @@ h2{
     text-align: justify;
 }
 
-
-
 img {
     width: 60px;
     height: 60px;
@@ -45,4 +43,8 @@ img {
     border: 1px solid;
     border-radius: 3px;
     padding: 7px;
+}
+
+.likes button.liked{
+    color: red;
 }
