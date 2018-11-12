@@ -13,6 +13,22 @@ angular.module('app')
         }
       }
 
+      this.editPost = function(post) {
+        post.isEdited = true;
+        this.currentPost = angular.copy(post);
+      }
+
+      this.saveEditedPost = function(post) {
+        post.isEdited = false;
+        this.currentPost = null;
+      }
+
+      this.cancelEditing = function(post) {
+        post.isEdited = false;
+        post.message = this.currentPost.message;
+        post.title = this.currentPost.title;
+      }
+
       this.addPost = function () {
         this.newPost = {
             userId: this.currentUser.id,
