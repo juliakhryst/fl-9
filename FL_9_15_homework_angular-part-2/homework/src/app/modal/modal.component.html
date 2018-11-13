@@ -1,0 +1,11 @@
+<form>
+  <label for="topic-name">Topic</label>
+  <input type="text" id="topic-name" name="topic" [(ngModel)]="lesson.name">
+  <label for="date">Date</label>
+  <input type="text" id="topic-date" name="date" [(ngModel)]="lesson.date">
+  <label for="lecturer">Lecturer</label>
+  <input type="text" id="topic-lecturer" name="lecturer" [(ngModel)]="lesson.lecturer">
+
+  <button type="button" (click)="saveToList()">Add to the list</button>
+  <button type="reset" (click)="closeModal()">Close modal</button>
+</form>

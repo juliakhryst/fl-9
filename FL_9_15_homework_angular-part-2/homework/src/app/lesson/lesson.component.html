@@ -1,0 +1,41 @@
+<button (click)="addFormToggle()">Add new lesson</button>
+<h2 *ngIf="lessons.length === 0">You haven't added anything yet</h2>
+<table class="table-data" *ngIf="lessons.length > 0">
+  <thead></thead>
+  <tbody>
+    <tr>
+      <th>#</th>
+      <th>Topic</th>
+      <th>Date</th>
+      <th>Lecturer</th>
+      <th>Actions</th>
+    </tr>
+
+    <tr *ngFor="let lesson of lessons">
+      <td>{{lesson.id}}</td>
+      <td>
+        <span *ngIf="!lesson.isEdited">{{lesson.name}}</span>
+        <input *ngIf="lesson.isEdited" type="text" name="topic" [(ngModel)]="lesson.name">
+      </td>
+      <td>
+        <span *ngIf="!lesson.isEdited">{{lesson.date}}</span>
+        <input *ngIf="lesson.isEdited" type="text" name="date" [(ngModel)]="lesson.date">
+      </td>
+      <td>
+        <span *ngIf="!lesson.isEdited">{{lesson.lecturer}}</span>
+        <input *ngIf="lesson.isEdited" type="text" name="lecturer" [(ngModel)]="lesson.lecturer">
+      </td>
+      <td>
+        <button (click)="toggleEdit(lesson)">
+          <span *ngIf="!lesson.isEdited">Edit</span>
+          <span *ngIf="lesson.isEdited">Save</span>
+        </button>
+        <button (click)="deleteItem(lesson)">Delete</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<div *ngIf="isFormShown">
+  <app-modal (lessonChanged)="addLesson($event)" (cancel)="addFormToggle"></app-modal>
+</div>
