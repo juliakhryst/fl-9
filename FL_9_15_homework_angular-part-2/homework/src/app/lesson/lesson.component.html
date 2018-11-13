@@ -1,7 +1,6 @@
 <button (click)="addFormToggle()">Add new lesson</button>
 <h2 *ngIf="lessons.length === 0">You haven't added anything yet</h2>
 <table class="table-data" *ngIf="lessons.length > 0">
-  <thead></thead>
   <tbody>
     <tr>
       <th>#</th>
@@ -27,8 +26,7 @@
       </td>
       <td>
         <button (click)="toggleEdit(lesson)">
-          <span *ngIf="!lesson.isEdited">Edit</span>
-          <span *ngIf="lesson.isEdited">Save</span>
+          <span>{{lesson.isEdited?'Save':'Edit'}}</span>
         </button>
         <button (click)="deleteItem(lesson)">Delete</button>
       </td>
@@ -37,5 +35,5 @@
   </tbody>
 </table>
 <div *ngIf="isFormShown">
-  <app-modal (lessonChanged)="addLesson($event)" (cancel)="addFormToggle"></app-modal>
+  <app-modal (lessonChanged)="addLesson($event)" (cancel)="addFormToggle()"></app-modal>
 </div>

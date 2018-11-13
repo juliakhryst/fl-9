@@ -7,20 +7,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  @Input()
-  public isShown;
-
-  @Input()
-  public lesson = {
+  public lesson: Object = {
     name: '',
     date: '',
     lecturer: '',
   };
 
   @Output()
-  public cancel: EventEmitter <boolean> = new EventEmitter();
+  public cancel: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output()
-  public lessonChanged: EventEmitter <Object> = new EventEmitter();
+  public lessonChanged: EventEmitter<Object> = new EventEmitter<Object>();
 
   constructor() { }
 
@@ -32,7 +28,7 @@ export class ModalComponent implements OnInit {
   }
 
   saveToList() {
-     this.lessonChanged.emit(Object.assign({}, this.lesson));
+    this.lessonChanged.emit(Object.assign({}, this.lesson));
   }
 
 

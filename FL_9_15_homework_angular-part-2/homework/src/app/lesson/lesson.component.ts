@@ -8,21 +8,18 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class LessonComponent implements OnInit {
   public isFormShown = false;
-  lessons = [];
-  editLesson: any;
+  public lessons = [];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  public addFormToggle () {
+  public addFormToggle() {
     this.isFormShown = !(this.isFormShown);
-    // console.log('hi');
   }
 
   public addLesson(lesson) {
-    console.log(lesson);
     lesson.id = this.lessons.length + 1;
     this.lessons.push(lesson);
     this.addFormToggle();
@@ -36,12 +33,11 @@ export class LessonComponent implements OnInit {
     });
   }
 
-
-public toggleEdit(currentLesson) {
-  const editIndex = this.lessons.findIndex(lesson =>
-  lesson.id === currentLesson.id);
-  this.lessons[editIndex].isEdited = !this.lessons[editIndex].isEdited;
-}
+  public toggleEdit(currentLesson) {
+    const editIndex = this.lessons.findIndex(lesson =>
+      lesson.id === currentLesson.id);
+    this.lessons[editIndex].isEdited = !this.lessons[editIndex].isEdited;
+  }
 
 }
 
