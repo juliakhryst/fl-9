@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { LocalStorageService } from '../local-storage.service';
 
 @Component({
   selector: 'app-lesson',
@@ -8,11 +9,17 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class LessonComponent implements OnInit {
   public isFormShown = false;
-  public lessons = [];
+  public lessons: any [];
 
-  constructor() { }
+  constructor( public localStorageService: LocalStorageService) { }
 
   ngOnInit() {
+    if (this.localStorageService.getItem('lessons')) {
+      this.lessons = this.localStorageService.getItem('lessons');
+    } else {
+      this.lessons = [];
+    }
+
   }
 
   public addFormToggle() {
@@ -20,9 +27,10 @@ export class LessonComponent implements OnInit {
   }
 
   public addLesson(lesson) {
-    lesson.id = this.lessons.length + 1;
+    lesson.id = Math.floor(Math.random() * 100000);
     this.lessons.push(lesson);
     this.addFormToggle();
+    this.localStorageService.setItem('lessons', this.lessons);
   }
 
   public deleteItem(currentLesson) {
@@ -31,12 +39,14 @@ export class LessonComponent implements OnInit {
         this.lessons.splice(index, 1);
       }
     });
+    this.localStorageService.setItem('lessons', this.lessons);
   }
 
   public toggleEdit(currentLesson) {
     const editIndex = this.lessons.findIndex(lesson =>
       lesson.id === currentLesson.id);
     this.lessons[editIndex].isEdited = !this.lessons[editIndex].isEdited;
+    this.localStorageService.setItem('lessons', this.lessons);
   }
 
 }

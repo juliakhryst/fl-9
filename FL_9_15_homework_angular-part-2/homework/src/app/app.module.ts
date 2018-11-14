@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ModalComponent } from './modal/modal.component';
 import { LessonComponent } from './lesson/lesson.component';
+import { LocalStorageService } from './local-storage.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { LessonComponent } from './lesson/lesson.component';
   imports: [
     BrowserModule, FormsModule
   ],
-  providers: [],
+  providers: [LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

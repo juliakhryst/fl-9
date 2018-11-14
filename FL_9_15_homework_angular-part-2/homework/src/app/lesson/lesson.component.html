@@ -1,4 +1,4 @@
-<button (click)="addFormToggle()">Add new lesson</button>
+<button (click)="addFormToggle()" class="btn">Add new lesson</button>
 <h2 *ngIf="lessons.length === 0">You haven't added anything yet</h2>
 <table class="table-data" *ngIf="lessons.length > 0">
   <tbody>
@@ -25,10 +25,10 @@
         <input *ngIf="lesson.isEdited" type="text" name="lecturer" [(ngModel)]="lesson.lecturer">
       </td>
       <td>
-        <button (click)="toggleEdit(lesson)">
+        <button (click)="toggleEdit(lesson)" class="btn">
           <span>{{lesson.isEdited?'Save':'Edit'}}</span>
         </button>
-        <button (click)="deleteItem(lesson)">Delete</button>
+        <button (click)="deleteItem(lesson)" class="btn">Delete</button>
       </td>
     </tr>
 
